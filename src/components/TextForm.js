@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function TextForm(props) {
-  const [text, changeText] = useState();
+  const [text, changeText] = useState("");
   let updateText = (e) => {
     changeText(e.target.value);
   };
@@ -24,12 +24,22 @@ export default function TextForm(props) {
             value={text}
           ></textarea>
         </div>
-        <button className="btn btn-primary" onClick={toUpCase}>
+        <button className="btn btn-primary mx-2 my-2" onClick={toUpCase}>
           Convert to Uppercase
         </button>
-        <button className="btn btn-primary" onClick={toLowCase}>
+        <button className="btn btn-primary mx-2 my-2" onClick={toLowCase}>
           Convert to LowerCase
         </button>
+      </div>
+      <div className="container my-2">
+        <h2>Your Summary here</h2>
+        <p>
+          Total characters: {text.length}
+          <br></br>
+          Total Words: {text.split(" ").length}
+          <br></br>
+          Total time to read: {0.008 * text.split(" ").length}
+        </p>
       </div>
     </>
   );
